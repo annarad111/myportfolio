@@ -1,0 +1,187 @@
+@use "@/styles/variables" as *;
+@use "@/styles/mixins" as *;
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  @include flex-between;
+  padding: 1.5rem 3rem;
+  transition: all $duration-base $ease-smooth;
+  justify-content: flex-end;
+
+  &.scrolled {
+    padding: 1rem 3rem;
+    background: rgba(245, 244, 240, 0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(13, 13, 13, 0.06);
+  }
+
+  @include responsive(md) {
+    padding: 1.25rem 1.5rem;
+    &.scrolled {
+      padding: 1rem 1.5rem;
+    }
+  }
+}
+
+.logo {
+  font-family: $font-display;
+  font-size: 1.4rem;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  color: $color-fg;
+  text-decoration: none;
+
+  span {
+    color: $color-accent;
+  }
+}
+
+.links {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: $space-lg;
+
+  @include responsive(md) {
+    display: none;
+  }
+}
+
+.link {
+  font-family: $font-body;
+  font-size: 0.85rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: $color-fg;
+  @include hover-underline;
+  transition: color $duration-base $ease-smooth;
+  background: none;
+  border: none;
+  cursor: none;
+
+  &:hover {
+    color: $color-accent;
+  }
+}
+
+.cta {
+  font-family: $font-body;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: $color-bg;
+  background: $color-accent;
+  padding: 0.5rem 1.25rem;
+  border-radius: 2px;
+  transition: background $duration-base $ease-smooth;
+  border: none;
+  cursor: none;
+  background: none;
+
+  &:hover {
+    background: $color-accent-lt;
+  }
+}
+
+.ctahello {
+  font-family: $font-body;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: $color-bg;
+  background: $color-accent;
+  padding: 0.5rem 1.25rem;
+  border-radius: 2px;
+  transition: background $duration-base $ease-smooth;
+  border: none;
+  cursor: none;
+
+  &:hover {
+    background: $color-pink-lt;
+  }
+}
+
+.burger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: none;
+  padding: 0.5rem;
+
+  span {
+    display: block;
+    width: 24px;
+    height: 1px;
+    background: $color-fg;
+    transition: all $duration-base $ease-smooth;
+    transform-origin: center;
+  }
+
+  &.open span:first-child {
+    transform: translateY(6px) rotate(45deg);
+  }
+  &.open span:last-child {
+    transform: translateY(-6px) rotate(-45deg);
+  }
+
+  @include responsive(md) {
+    display: flex;
+  }
+}
+
+.mobileMenu {
+  position: fixed;
+  inset: 0;
+  background: $color-bg;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: $space-lg;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity $duration-slow $ease-smooth;
+  z-index: 99;
+
+  &.mobileOpen {
+    opacity: 1;
+    pointer-events: all;
+  }
+}
+
+.mobileLink {
+  font-family: $font-display;
+  font-size: 3rem;
+  color: $color-fg;
+  transition: color $duration-base $ease-smooth;
+  &:hover {
+    color: $color-accent;
+  }
+}
+
+.mobileCta {
+  font-family: $font-body;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: $color-accent;
+  border: 1px solid $color-accent;
+  padding: 0.75rem 2rem;
+  margin-top: $space-md;
+  transition: all $duration-base $ease-smooth;
+  cursor: none;
+
+  &:hover {
+    background: $color-accent;
+    color: $color-bg;
+  }
+}

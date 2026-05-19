@@ -1,0 +1,34 @@
+// ── Colors ──────────────────────────────────────
+$color-bg:        #F5F4F0;
+$color-fg:        #0D0D0D;
+$color-accent:    #d96b48;
+$color-accent-lt: #e08a6d;
+$color-muted:     #9A9A8E;
+$color-surface:   #EDECEA;
+$color-pink:    #e8a0b4;
+$color-pink-lt: #f2c4d0;
+
+// ── Typography ──────────────────────────────────
+$font-display:    var(--font-display), serif;
+$font-body:       var(--font-body), sans-serif;
+$font-mono:       var(--font-mono), monospace;
+
+// ── Spacing scale ────────────────────────────────
+$space-xs:   0.25rem;
+$space-sm:   0.5rem;
+$space-md:   1rem;
+$space-lg:   2rem;
+$space-xl:   4rem;
+$space-2xl:  8rem;
+
+// ── Transitions ─────────────────────────────────
+$ease-smooth: cubic-bezier(0.16, 1, 0.3, 1);
+$duration-fast:   150ms;
+$duration-base:   300ms;
+$duration-slow:   600ms;
+
+// ── Breakpoints ─────────────────────────────────
+$bp-sm:  640px;
+$bp-md:  768px;
+$bp-lg:  1024px;
+$bp-xl:  1280px;

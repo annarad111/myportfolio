@@ -1,0 +1,296 @@
+@use "@/styles/variables" as *;
+@use "@/styles/mixins" as *;
+
+.hero {
+  height: 100%;
+  min-height: 100vh;
+  position: relative;
+  min-height: 700px;
+  display: flex;
+  align-items: center;
+  background: $color-bg;
+  overflow: hidden;
+  padding: 0 3rem;
+
+  @include responsive(md) {
+    padding: 0 1.5rem;
+  }
+}
+
+.watermarkLayer {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.watermark {
+  font-family: $font-display;
+  font-size: clamp(8rem, 20vw, 22rem);
+  font-weight: 300;
+  color: $color-surface;
+  letter-spacing: -0.05em;
+  user-select: none;
+  line-height: 1;
+  padding-right: 2rem;
+}
+
+.line {
+  position: absolute;
+  left: 1.5rem;
+  top: 15%;
+  bottom: 15%;
+  width: 1px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    $color-accent 30%,
+    $color-accent 70%,
+    transparent
+  );
+
+  @include responsive(md) {
+    display: none;
+  }
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+}
+
+.greeting {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: $font-mono;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: $color-muted;
+  margin-bottom: $space-lg;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: $color-accent;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(0.8);
+  }
+}
+
+.name {
+  font-family: $font-display;
+  font-size: clamp(3.5rem, 8vw, 7.5rem);
+  font-weight: 300;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  color: $color-fg;
+  margin-bottom: $space-lg;
+
+  em {
+    font-style: italic;
+    color: $color-accent;
+  }
+}
+
+.roleRow {
+  display: flex;
+  align-items: baseline;
+  gap: 0.35rem;
+  margin-bottom: $space-lg;
+  font-family: $font-body;
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  color: $color-muted;
+}
+
+.roleStatic {
+  color: $color-muted;
+}
+
+.roleTyped {
+  color: $color-fg;
+  font-weight: 500;
+  min-width: 2ch;
+}
+
+.cursor {
+  color: $color-accent;
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.bio {
+  font-family: $font-body;
+  font-size: clamp(0.9rem, 1.5vw, 1rem);
+  color: $color-muted;
+  line-height: 1.7;
+  margin-bottom: $space-xl;
+  max-width: 420px;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: $space-lg;
+
+  @include responsive(sm) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: $space-md;
+  }
+}
+
+.btnPrimary {
+  font-family: $font-body;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: $color-bg;
+  background: $color-fg;
+  padding: 0.85rem 2rem;
+  transition: background $duration-base $ease-smooth;
+  border: none;
+  cursor: none;
+
+  &:hover {
+    background: $color-accent;
+  }
+}
+
+.btnSecondary {
+  font-family: $font-body;
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: $color-fg;
+  @include hover-underline;
+  background: none;
+  border: none;
+  cursor: none;
+
+  &:hover {
+    color: $color-accent;
+  }
+}
+
+.scrollIndicator {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 3rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.75rem;
+
+  @include responsive(md) {
+    left: 1.5rem;
+  }
+}
+
+.scrollLine {
+  width: 48px;
+  height: 1px;
+  background: $color-accent;
+  animation: scrollRight 2s ease-in-out infinite;
+  transform-origin: left;
+}
+
+@keyframes scrollRight {
+  0% {
+    transform: scaleX(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scaleX(0);
+    opacity: 0;
+    transform-origin: right;
+  }
+}
+
+.scrollText {
+  font-family: $font-mono;
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: $color-muted;
+  writing-mode: horizontal-tb; // orizontal în loc de vertical
+}
+
+.index {
+  position: absolute;
+  bottom: 2.5rem;
+  right: 3rem;
+  font-family: $font-mono;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  color: $color-muted;
+
+  @include responsive(md) {
+    right: 1.5rem;
+  }
+}
+
+.photoWrapper {
+  position: absolute;
+  right: 6rem;
+  bottom: 4rem;
+  z-index: 1;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: -8px;
+    border-radius: 50%;
+    border: 1px solid $color-pink;
+    opacity: 0.5;
+  }
+
+  @include responsive(md) {
+    display: none;
+  }
+}
+
+.photo {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center top;
+  filter: grayscale(20%);
+  transition: filter $duration-slow $ease-smooth;
+
+  &:hover {
+    filter: grayscale(0%);
+  }
+}

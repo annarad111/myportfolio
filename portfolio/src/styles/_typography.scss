@@ -1,0 +1,25 @@
+@use '@/styles/variables' as *;
+
+h1, h2, h3, h4 {
+  font-family: $font-display;
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+h1 { font-size: clamp(3rem, 8vw, 7rem); }
+h2 { font-size: clamp(2rem, 5vw, 4rem); }
+h3 { font-size: clamp(1.25rem, 3vw, 2rem); }
+
+p, li, input, textarea {
+  font-family: $font-body;
+  font-size: clamp(0.9rem, 1.5vw, 1rem);
+  line-height: 1.65;
+}
+
+.mono {
+  font-family: $font-mono;
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}

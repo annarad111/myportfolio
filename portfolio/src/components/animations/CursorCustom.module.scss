@@ -1,0 +1,33 @@
+@use '@/styles/variables' as *;
+
+.cursor {
+  position: fixed;
+  top: -4px;
+  left: -4px;
+  width: 8px;
+  height: 8px;
+  background: $color-accent;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: multiply;
+}
+
+.follower {
+  position: fixed;
+  top: -20px;
+  left: -20px;
+  width: 40px;
+  height: 40px;
+  border: 1px solid $color-accent;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  opacity: 0.6;
+  transition: transform 0.1s $ease-smooth, opacity 0.2s ease;
+
+  [data-hovering] & {
+    transform: scale(2);
+    opacity: 0.3;
+  }
+}

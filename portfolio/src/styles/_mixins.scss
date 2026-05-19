@@ -1,0 +1,45 @@
+@use '@/styles/variables' as *;
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin responsive($bp) {
+  @if $bp == sm  { @media (max-width: $bp-sm)  { @content; } }
+  @if $bp == md  { @media (max-width: $bp-md)  { @content; } }
+  @if $bp == lg  { @media (max-width: $bp-lg)  { @content; } }
+  @if $bp == xl  { @media (max-width: $bp-xl)  { @content; } }
+}
+
+@mixin text-reveal {
+  overflow: hidden;
+  span {
+    display: block;
+    transform: translateY(100%);
+    transition: transform $duration-slow $ease-smooth;
+    .revealed & { transform: translateY(0); }
+  }
+}
+
+@mixin hover-underline {
+  position: relative;
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: currentColor;
+    transition: width $duration-base $ease-smooth;
+  }
+  &:hover::after { width: 100%; }
+}

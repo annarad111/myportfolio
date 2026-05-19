@@ -1,0 +1,165 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.section {
+  height: 100vh;
+  width: 100vw;
+  padding: 5rem 3rem 3rem;
+  background: $color-fg;
+  color: $color-bg;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: $space-2xl;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  gap: $space-lg;
+}
+
+.label {
+  font-family: $font-mono;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: $color-pink;
+  display: block;
+}
+
+.title {
+  font-family: $font-display;
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: 300;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  color: $color-bg;
+
+  em {
+    font-style: italic;
+    color: $color-pink;
+  }
+}
+
+.subtitle {
+  font-family: $font-body;
+  font-size: 0.95rem;
+  color: rgba(245, 244, 240, 0.6);
+  line-height: 1.7;
+  max-width: 320px;
+}
+
+.highlights {
+  display: flex;
+  gap: $space-xl;
+  padding-top: $space-lg;
+  border-top: 1px solid rgba(245, 244, 240, 0.1);
+}
+
+.highlight {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.highlightNumber {
+  font-family: $font-display;
+  font-size: 2.5rem;
+  font-weight: 300;
+  color: $color-pink;
+  line-height: 1;
+}
+
+.highlightLabel {
+  font-family: $font-mono;
+  font-size: 0.65rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(245, 244, 240, 0.4);
+  line-height: 1.5;
+}
+
+.right {
+  position: relative;
+}
+
+.modules {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background: rgba(245, 244, 240, 0.08);
+}
+
+.module {
+  display: flex;
+  gap: $space-md;
+  padding: 1rem 1.25rem;
+  background: $color-fg;
+  transition: background $duration-base $ease-smooth;
+
+  &:hover { background: rgba(245, 244, 240, 0.04); }
+}
+
+.moduleNum {
+  font-family: $font-mono;
+  font-size: 0.65rem;
+  color: $color-pink;
+  opacity: 0.6;
+  flex-shrink: 0;
+  padding-top: 0.2rem;
+}
+
+.moduleTitle {
+  font-family: $font-display;
+  font-size: 1rem;
+  font-weight: 400;
+  color: $color-bg;
+  margin-bottom: 0.25rem;
+}
+
+.moduleDesc {
+  font-family: $font-body;
+  font-size: 0.78rem;
+  color: rgba(245, 244, 240, 0.5);
+  line-height: 1.5;
+}
+
+.index {
+  position: absolute;
+  bottom: 2.5rem;
+  right: 3rem;
+  font-family: $font-mono;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  color: rgba(245, 244, 240, 0.2);
+}
+
+.viewBtn {
+  display: inline-flex;
+  align-items: center;
+  font-family: $font-mono;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: $color-fg;
+  background: $color-pink;
+  padding: 0.75rem 1.5rem;
+  transition: all $duration-base $ease-smooth;
+  width: fit-content;
+
+  &:hover {
+    background: $color-pink-lt;
+    letter-spacing: 0.12em;
+  }
+}

@@ -1,0 +1,27 @@
+@use '@/styles/variables' as *;
+
+.stars {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.terracotta {
+  color: $color-accent;
+}
+
+.pink {
+  color: $color-pink;
+}
+
+.star {
+  position: absolute;
+  fill: currentColor;
+  animation: floatStar var(--duration, 7s) ease-in-out infinite var(--delay, 0s);
+}
+
+@keyframes floatStar {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(20deg); }
+}
