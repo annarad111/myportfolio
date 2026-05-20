@@ -21,7 +21,6 @@ export default function CursorCustom() {
       cursor.style.transform = `translate(${mouseX - 4}px, ${mouseY - 4}px)`
     }
 
-    // Follower cu lag
     const animateFollower = () => {
       followerX += (mouseX - followerX) * 0.12
       followerY += (mouseY - followerY) * 0.12

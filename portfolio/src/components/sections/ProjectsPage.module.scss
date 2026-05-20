@@ -45,7 +45,6 @@
   }
 }
 
-// Layout editorial — nu grid uniform
 .grid {
   display: grid;
   grid-template-columns: 1.8fr 1fr 1fr;
@@ -60,7 +59,6 @@
     grid-template-columns: 1fr;
     grid-template-rows: auto;
 
-    // Reset primul card
     .card:first-child {
       grid-row: auto;
     }
@@ -88,7 +86,6 @@
     }
   }
 
-  // Primul card — mare, ocupa tot rândul stâng
   &:first-child {
     grid-row: span 2;
     background: $color-fg;

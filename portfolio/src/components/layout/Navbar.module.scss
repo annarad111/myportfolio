@@ -11,6 +11,7 @@
   padding: 1.5rem 3rem;
   transition: all $duration-base $ease-smooth;
   justify-content: flex-end;
+  z-index: 1000;
 
   &.scrolled {
     padding: 1rem 3rem;
@@ -116,12 +117,13 @@
   border: none;
   cursor: none;
   padding: 0.5rem;
+  z-index: 1000;
 
   span {
     display: block;
     width: 24px;
     height: 1px;
-    background: $color-fg;
+    background: $color-pink;
     transition: all $duration-base $ease-smooth;
     transform-origin: center;
   }
@@ -135,6 +137,8 @@
 
   @include responsive(md) {
     display: flex;
+    gap:12px;
+    padding: 0;
   }
 }
 
@@ -150,7 +154,7 @@
   opacity: 0;
   pointer-events: none;
   transition: opacity $duration-slow $ease-smooth;
-  z-index: 99;
+  z-index: 999;
 
   &.mobileOpen {
     opacity: 1;
@@ -163,6 +167,7 @@
   font-size: 3rem;
   color: $color-fg;
   transition: color $duration-base $ease-smooth;
+  border: none;
   &:hover {
     color: $color-accent;
   }

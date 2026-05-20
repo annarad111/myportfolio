@@ -8,7 +8,6 @@ export const navLinks: NavLink[] = [
 ];
 
 export const projects: Project[] = [
-  // Developer
   {
     id: "casino-games",
     title: "Interactive Casino Games",
@@ -85,7 +84,6 @@ export const projects: Project[] = [
     year: 2026,
     featured: true,
   },
-  // Entrepreneur
   {
     id: "art-paint-design",
     title: "Art Paint Design SRL",
@@ -96,7 +94,6 @@ export const projects: Project[] = [
     year: 2021,
     featured: true,
   },
-  // Artist
   {
     id: "visual-arts",
     title: "Visual Arts Practice",

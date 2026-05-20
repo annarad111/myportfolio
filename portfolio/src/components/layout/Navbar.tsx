@@ -13,6 +13,14 @@ const navItems = [
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -21,8 +29,6 @@ export default function Navbar() {
   }, []);
 
   const scrollToPanel = (panelIndex: number) => {
-    const isMobile = window.innerWidth < 768;
-
     if (isMobile) {
       const sections = document.querySelectorAll(".h-section");
       const target = sections[panelIndex] as HTMLElement;
@@ -41,7 +47,9 @@ export default function Navbar() {
   };
 
   return (
-    <nav className={`${styles.nav} ${scrolled ? styles.scrolled : ""}`}>
+    <nav
+      className={`${styles.nav} ${scrolled && !isMobile ? styles.scrolled : ""}`}
+    >
       <ul className={styles.links}>
         {navItems.map((item) => (
           <li key={item.label}>

@@ -94,7 +94,6 @@ export default function HorizontalScroll({ children }: HorizontalScrollProps) {
     }
   }, [isMobile])
 
-  // Mobile — vertical simplu
   if (isMobile) {
     return (
       <div className="mobile-container">
@@ -103,7 +102,6 @@ export default function HorizontalScroll({ children }: HorizontalScrollProps) {
     )
   }
 
-  // Desktop — horizontal GSAP
   return (
     <div ref={containerRef} className="h-container">
       <div ref={trackRef} className="h-track">

@@ -166,24 +166,36 @@ export default function Hero() {
         <div className={`${styles.actions} hero-reveal`}>
           <button
             className={styles.btnPrimary}
-            onClick={() =>
-              window.scrollTo({
-                top: (document.body.scrollHeight - window.innerHeight) / 6,
-                behavior: "smooth",
-              })
-            }
+            onClick={() => {
+              const isMobile = window.innerWidth < 768;
+              if (isMobile) {
+                const sections = document.querySelectorAll(".h-section");
+                sections[1]?.scrollIntoView({ behavior: "smooth" });
+              } else {
+                window.scrollTo({
+                  top: (document.body.scrollHeight - window.innerHeight) / 6,
+                  behavior: "smooth",
+                });
+              }
+            }}
           >
             View my work
           </button>
           <button
             className={styles.btnSecondary}
-            onClick={() =>
-              window.scrollTo({
-                top:
-                  ((document.body.scrollHeight - window.innerHeight) / 6) * 4,
-                behavior: "smooth",
-              })
-            }
+            onClick={() => {
+              const isMobile = window.innerWidth < 768;
+              if (isMobile) {
+                const sections = document.querySelectorAll(".h-section");
+                sections[4]?.scrollIntoView({ behavior: "smooth" });
+              } else {
+                window.scrollTo({
+                  top:
+                    ((document.body.scrollHeight - window.innerHeight) / 6) * 4,
+                  behavior: "smooth",
+                });
+              }
+            }}
           >
             About me
           </button>

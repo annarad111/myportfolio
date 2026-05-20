@@ -1,4 +1,5 @@
-@use '@/styles/variables' as *;
+@use "@/styles/variables" as *;
+@use "@/styles/mixins" as *;
 
 .cursor {
   position: fixed;
@@ -11,6 +12,9 @@
   pointer-events: none;
   z-index: 9999;
   mix-blend-mode: multiply;
+  @include responsive(md) {
+    display: none;
+  }
 }
 
 .follower {
@@ -24,10 +28,15 @@
   pointer-events: none;
   z-index: 9998;
   opacity: 0.6;
-  transition: transform 0.1s $ease-smooth, opacity 0.2s ease;
+  transition:
+    transform 0.1s $ease-smooth,
+    opacity 0.2s ease;
 
   [data-hovering] & {
     transform: scale(2);
     opacity: 0.3;
+  }
+  @include responsive(md) {
+    display: none;
   }
 }
