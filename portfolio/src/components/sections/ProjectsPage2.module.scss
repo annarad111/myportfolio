@@ -206,3 +206,24 @@
   letter-spacing: 0.1em;
   color: $color-muted;
 }
+
+@include responsive(md) {
+  .card {
+    padding: 1.25rem;
+    height: auto;
+  }
+
+  .cardDesc {
+    -webkit-line-clamp: unset;
+    overflow: visible;
+    display: block;
+  }
+
+  .grid {
+    overflow: visible;
+  }
+
+  .section {
+    height: auto;
+  }
+}

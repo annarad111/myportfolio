@@ -144,3 +144,23 @@
   letter-spacing: 0.1em;
   color: $color-muted;
 }
+
+.cvBtn {
+  display: inline-flex;
+  align-items: center;
+  font-family: $font-mono;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: $color-fg;
+  border: 1px solid $color-fg;
+  padding: 0.75rem 1.5rem;
+  margin-top: $space-md;
+  width: fit-content;
+  transition: all $duration-base $ease-smooth;
+
+  &:hover {
+    background: $color-fg;
+    color: $color-bg;
+  }
+}

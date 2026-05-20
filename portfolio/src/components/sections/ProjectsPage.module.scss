@@ -292,3 +292,21 @@
   margin-bottom: 1rem;
   border-color: rgba(217, 107, 72, 0.4);
 }
+
+@include responsive(md) {
+  .card {
+    padding: 1.25rem;
+    height: auto;
+    min-height: auto;
+  }
+
+  .cardDesc {
+    -webkit-line-clamp: unset;
+    overflow: visible;
+    display: block;
+  }
+
+  .grid {
+    overflow: visible;
+  }
+}

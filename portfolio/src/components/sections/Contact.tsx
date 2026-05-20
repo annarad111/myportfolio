@@ -1,25 +1,23 @@
-import styles from './Contact.module.scss'
+import styles from "./Contact.module.scss";
 
 export default function Contact() {
   return (
     <section className={styles.section} id="contact">
-
-      {/* Watermark */}
       <span className={styles.watermark}>hello</span>
 
-      {/* Content */}
       <div className={styles.content}>
         <span className={styles.label}>05 — Contact</span>
 
         <h2 className={`${styles.title} gsap-reveal`}>
-          Let's build<br />
+          Let's build
+          <br />
           <em>something together</em>
         </h2>
 
         <p className={`${styles.subtitle} gsap-reveal`}>
-          Open to frontend roles, product management roles,<br /> 
-          product collaborations
-          and interesting problems worth solving.
+          Open to frontend roles, product management roles,
+          <br />
+          product collaborations and interesting problems worth solving.
         </p>
 
         <div className={`${styles.actions} gsap-reveal`}>
@@ -49,20 +47,19 @@ export default function Contact() {
             GitHub ↗
           </a>
         </div>
+        <a href="/cv-ana-radulescu.pdf" download className={styles.cvBtn}>
+          Download CV ↓
+        </a>
       </div>
 
-      {/* Footer */}
       <div className={styles.footer}>
-        <span className={styles.footerText}>
-          Ana-Maria Rădulescu © 2026
-        </span>
+        <span className={styles.footerText}>Ana-Maria Rădulescu © 2026</span>
         <span className={styles.footerText}>
           Built with Next.js · TypeScript · SASS
         </span>
       </div>
 
       <span className={styles.index}>05</span>
-
     </section>
-  )
+  );
 }

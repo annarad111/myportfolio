@@ -62,9 +62,14 @@ export default function Navbar() {
           </li>
         ))}
         <li>
-          <button className={styles.ctahello} onClick={() => scrollToPanel(5)}>
+          <a
+            className={styles.ctahello}
+            href="https://linkedin.com/in/radulescu-ana"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             Say hello
-          </button>
+          </a>
         </li>
       </ul>
 
@@ -89,12 +94,14 @@ export default function Navbar() {
             {item.label}
           </button>
         ))}
-        <button
-          className={styles.mobileCta}
-          onMouseDown={() => scrollToPanel(5)}
+        <a
+          className={styles.ctahello}
+          href="https://linkedin.com/in/radulescu-ana"
+          target="_blank"
+          rel="noopener noreferrer"
         >
           Say hello
-        </button>
+        </a>
       </div>
     </nav>
   );

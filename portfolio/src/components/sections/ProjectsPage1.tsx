@@ -83,7 +83,7 @@ export default function ProjectsPage1() {
         ))}
       </div>
 
-      <span className={styles.index}>02 / 02</span>
+      <span className={styles.index}>02</span>
     </section>
   )
 }
