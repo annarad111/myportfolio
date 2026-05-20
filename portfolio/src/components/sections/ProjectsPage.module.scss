@@ -1,5 +1,5 @@
-@use '@/styles/variables' as *;
-@use '@/styles/mixins' as *;
+@use "@/styles/variables" as *;
+@use "@/styles/mixins" as *;
 
 .section {
   height: 100vh;
@@ -10,6 +10,11 @@
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  @include responsive(md) {
+    padding: 5rem 1.5rem 3rem;
+    height: auto;
+    min-height: 100vh;
+  }
 }
 
 .header {
@@ -50,6 +55,16 @@
   flex: 1;
   min-height: 0;
   overflow: hidden;
+
+  @include responsive(md) {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+
+    // Reset primul card
+    .card:first-child {
+      grid-row: auto;
+    }
+  }
 }
 
 .card {
@@ -65,8 +80,12 @@
 
   &:hover {
     background: $color-surface;
-    .cardNumber { color: $color-accent; }
-    .cardTitle { color: $color-accent; }
+    .cardNumber {
+      color: $color-accent;
+    }
+    .cardTitle {
+      color: $color-accent;
+    }
   }
 
   // Primul card — mare, ocupa tot rândul stâng
@@ -75,14 +94,38 @@
     background: $color-fg;
     padding: 2rem;
 
-    .cardNumber, .cardYear, .cardDesc { color: rgba(245,244,240,0.5); }
-    .cardTitle { color: $color-bg; font-size: clamp(1.3rem, 2vw, 1.8rem); }
-    .cardLink { color: $color-bg; }
-    .roleTag { border-color: rgba(245,244,240,0.3); color: rgba(245,244,240,0.5); }
-    .tag { color: rgba(245,244,240,0.5); background: rgba(255,255,255,0.07); }
-    .cardDesc { -webkit-line-clamp: 5; }
+    .cardNumber,
+    .cardYear,
+    .cardDesc {
+      color: rgba(245, 244, 240, 0.5);
+    }
+    .cardTitle {
+      color: $color-bg;
+      font-size: clamp(1.3rem, 2vw, 1.8rem);
+    }
+    .cardLink {
+      color: $color-bg;
+    }
+    .roleTag {
+      border-color: rgba(245, 244, 240, 0.3);
+      color: rgba(245, 244, 240, 0.5);
+    }
+    .tag {
+      color: rgba(245, 244, 240, 0.5);
+      background: rgba(255, 255, 255, 0.07);
+    }
+    .cardDesc {
+      -webkit-line-clamp: 5;
+    }
 
-    &:hover { background: $color-accent; }
+    &:hover {
+      background: $color-accent;
+    }
+  }
+  @include responsive(md) {
+    &:first-child {
+      grid-column: 1;
+    }
   }
 }
 
@@ -108,10 +151,22 @@
   width: fit-content;
   flex-shrink: 0;
 
-  &.developer { border-color: $color-accent; color: $color-accent; }
-  &.pm { border-color: #5a3d2d; color: #5a3d2d; }
-  &.entrepreneur { border-color: #3d2d5a; color: #3d2d5a; }
-  &.artist { border-color: #5a2d3d; color: #5a2d3d; }
+  &.developer {
+    border-color: $color-accent;
+    color: $color-accent;
+  }
+  &.pm {
+    border-color: #5a3d2d;
+    color: #5a3d2d;
+  }
+  &.entrepreneur {
+    border-color: #3d2d5a;
+    color: #3d2d5a;
+  }
+  &.artist {
+    border-color: #5a2d3d;
+    color: #5a2d3d;
+  }
 }
 
 .cardContent {
@@ -190,7 +245,9 @@
   @include hover-underline;
   transition: color $duration-base $ease-smooth;
 
-  &:hover { color: $color-accent; }
+  &:hover {
+    color: $color-accent;
+  }
 }
 
 .index {
@@ -210,6 +267,9 @@
   display: flex;
   align-items: flex-end;
   gap: -1rem;
+  @include responsive(md) {
+    display: none;
+  }
 }
 
 .cardImg {

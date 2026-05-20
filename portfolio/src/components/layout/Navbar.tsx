@@ -21,15 +21,21 @@ export default function Navbar() {
   }, []);
 
   const scrollToPanel = (panelIndex: number) => {
-    const totalPanels = 7;
-    const totalScrollHeight = document.body.scrollHeight - window.innerHeight;
-    const scrollPerPanel = totalScrollHeight / (totalPanels - 1);
-    const targetScroll = panelIndex * scrollPerPanel;
+    const isMobile = window.innerWidth < 768;
 
-    window.scrollTo({
-      top: targetScroll,
-      behavior: "smooth",
-    });
+    if (isMobile) {
+      const sections = document.querySelectorAll(".h-section");
+      const target = sections[panelIndex] as HTMLElement;
+      if (target) {
+        target.scrollIntoView({ behavior: "smooth" });
+      }
+    } else {
+      const totalPanels = 7;
+      const totalScrollHeight = document.body.scrollHeight - window.innerHeight;
+      const scrollPerPanel = totalScrollHeight / (totalPanels - 1);
+      const targetScroll = panelIndex * scrollPerPanel;
+      window.scrollTo({ top: targetScroll, behavior: "smooth" });
+    }
 
     setMenuOpen(false);
   };

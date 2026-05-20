@@ -40,7 +40,6 @@
   }
 }
 
-// 3 proiecte — layout asimetric
 .grid {
   display: grid;
   grid-template-columns: 1.8fr 1fr 1fr;
@@ -50,6 +49,10 @@
   flex: 1;
   min-height: 0;
   overflow: hidden;
+    @include responsive(md) {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 .card {
@@ -69,7 +72,6 @@
     .cardTitle { color: $color-accent; }
   }
 
-  // Primul card — mare
   &:first-child {
     background: $color-fg;
     padding: 2rem;

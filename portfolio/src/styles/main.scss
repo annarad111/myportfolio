@@ -64,3 +64,19 @@ img, video {
   overflow: hidden;
   position: relative;
 }
+
+// ── Mobile container ─────────────────────────────
+.mobile-container {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+// Pe mobile, h-section devine bloc normal
+@media (max-width: 768px) {
+  .h-section {
+    width: 100vw;
+    height: auto;
+    min-height: 100vh;
+    overflow: visible;
+  }
+}

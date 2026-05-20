@@ -1,5 +1,5 @@
-@use '@/styles/variables' as *;
-@use '@/styles/mixins' as *;
+@use "@/styles/variables" as *;
+@use "@/styles/mixins" as *;
 
 .section {
   height: 100vh;
@@ -11,9 +11,13 @@
   flex-direction: column;
   justify-content: center;
   overflow: hidden;
+  @include responsive(md) {
+    padding: 5rem 1.5rem 6rem;
+    height: auto;
+    min-height: 100vh;
+  }
 }
 
-// ── Watermark ────────────────────────────────────
 .watermark {
   position: absolute;
   bottom: -2rem;
@@ -29,7 +33,6 @@
   z-index: 0;
 }
 
-// ── Content ──────────────────────────────────────
 .content {
   position: relative;
   z-index: 1;
@@ -58,6 +61,9 @@
     font-style: italic;
     color: $color-accent;
   }
+  @include responsive(md) {
+    font-size: clamp(2rem, 8vw, 3rem);
+  }
 }
 
 .subtitle {
@@ -68,7 +74,6 @@
   margin-bottom: $space-xl;
 }
 
-// ── Email ─────────────────────────────────────────
 .actions {
   margin-bottom: $space-xl;
 }
@@ -88,7 +93,6 @@
   }
 }
 
-// ── Social links ──────────────────────────────────
 .links {
   display: flex;
   gap: $space-xl;
@@ -103,16 +107,23 @@
   @include hover-underline;
   transition: color $duration-base $ease-smooth;
 
-  &:hover { color: $color-accent; }
+  &:hover {
+    color: $color-accent;
+  }
 }
 
-// ── Footer ────────────────────────────────────────
 .footer {
   position: absolute;
   bottom: 2.5rem;
   left: 3rem;
   right: 3rem;
   @include flex-between;
+  @include responsive(md) {
+    flex-direction: column;
+    gap: 0.5rem;
+    left: 1.5rem;
+    right: 1.5rem;
+  }
 }
 
 .footerText {
@@ -124,7 +135,6 @@
   margin-right: 25px;
 }
 
-// ── Index ─────────────────────────────────────────
 .index {
   position: absolute;
   bottom: 2.5rem;
